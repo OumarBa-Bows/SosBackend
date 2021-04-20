@@ -40,7 +40,10 @@ public class AllLevelserviceImp implements AllLevelservice{
 		if(list != null) {
 			for(Level1 level1: list) {
 				AllLevels alllevels = new AllLevels();
-				alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+Math.round(level1.getId03())+Math.round(level1.getId04()));
+				String valcategorie = categorie(level1.getId04());
+				
+				alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+Math.round(level1.getId03())+valcategorie);
+				alllevels.setLevel1Id(level1.getLevel());
 				//
 				Inf_intervenant if_inter; 
 				if(level1.getInf_intervention().get(0) != null) {
@@ -156,7 +159,9 @@ public class AllLevelserviceImp implements AllLevelservice{
 						if(if_inter.getDate_interview().compareTo(datebut) >=0 && if_inter.getDate_interview().compareTo(datefin) <=0) {
 							logger.info("......////....33");
 							AllLevels alllevels = new AllLevels();
-							alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+Math.round(level1.getId03())+Math.round(level1.getId04()));
+							String valcategorie = categorie(level1.getId04());
+							alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+Math.round(level1.getId03())+valcategorie);
+							alllevels.setLevel1Id(level1.getLevel());
 							//
 							Inf_intervenant if_inter1; 
 							if(level1.getInf_intervention().get(0) != null) {
@@ -194,21 +199,58 @@ public class AllLevelserviceImp implements AllLevelservice{
 	public String structurelle(float struc) {
 		
 		String structure = "";
-		if (struc == 1) structure = "SOS PE";
-		if (struc == 2) structure = "AGD";
-		if (struc == 3) structure = "REMAPLUS";
-		if (struc == 4) structure = "NAD NDB";
-		if (struc == 5) structure = "AFLM NDB";
-		if (struc == 6) structure = "NSA";
-		if (struc == 7) structure = "INTERFACE ACTION";
-		if (struc == 8) structure = "STOP SIDA";
-		if (struc == 9) structure = "PE NDB";
-		if (struc == 10) structure = "OMST SIDA ROSSO";
-		if (struc == 11) structure = "RRAJ NOUAKCHOTT";
-		if (struc == 12) structure = "FOR/MVD";
-		if (struc == 13) structure = "ASC NDB";
+		int val = (int) struc;
+		
+		switch(val){
+			case 1:
+				structure = "SOS PE";
+				break;
+			case 2: 
+				structure = "AGD";
+				break;
+			case 3:
+				structure = "REMAPLUS";
+				break;
+			case 4: 
+				 structure = "NAD NDB";
+				 break;
+			case 5: 
+				structure = "AFLM NDB";
+				break;
+			case 6:
+				structure = "NSA";
+				break;
+			case 7:
+				structure = "INTERFACE ACTION";
+				break;
+			case 8:
+				structure = "STOP SIDA";
+				break;
+			case 9:
+				structure = "PE NDB";
+				break;
+			case 10:
+				 structure = "OMST SIDA ROSSO";
+				 break;
+			case 11: 
+				structure = "FOR/MVD";
+				break;
+			case 12: 
+				structure = "FOR/MVD";
+				break;
+			case 13: 
+				structure = "ASC NDB";
+				break;
+		}
 			
 		return structure;
+	}
+	
+	public String categorie(double d) {
+		String categorie = "";
+		if(d == 1) categorie = "PS";
+		if(d == 2) categorie = "HSH";
+		return categorie;
 	}
 	
 	//recupere le numero du structure à partir du nom de la structure 
@@ -263,39 +305,95 @@ public class AllLevelserviceImp implements AllLevelservice{
 	
 	public String intervenant(float nominterv) {
 		String intervenant = "";
+		int val = (int) nominterv; 
 		
-		if (nominterv == 1) intervenant = "intervenant 1";
-		if (nominterv == 2) intervenant = "intervenant 2";
-		if (nominterv == 3) intervenant = "intervenant 3";
-		if (nominterv == 4) intervenant = "intervenant 4";
-		if (nominterv == 5) intervenant = "intervenant 5";
-		if (nominterv == 6) intervenant = "intervenant 6";
-		if (nominterv == 7) intervenant = "intervenant 7";
-		if (nominterv == 8) intervenant = "intervenant 8";
-		if (nominterv == 9) intervenant = "intervenant 9";
-		if (nominterv == 10) intervenant = "intervenant 10";
+		switch(val) {
+			case 1:
+				intervenant = "intervenant 1";
+				break;
+			case 2:
+				intervenant = "intervenant 2";
+				break;
+			case 3:
+				intervenant = "intervenant 3";
+				break;
+			case 4:
+				intervenant = "intervenant 4";
+				break;
+			case 5:
+				intervenant = "intervenant 5";
+				break;
+			case 6: 
+				intervenant = "intervenant 6";
+				break;
+			case 7: 
+				intervenant = "intervenant 7";
+				break;
+			case 8: 
+				intervenant = "intervenant 8";
+				break;
+			case 9: 
+				intervenant = "intervenant 9";
+				break;
+			case 10:
+				intervenant = "intervenant 10";
+				break;
+				
+		}
+		
 	
 		return intervenant;
 	}
 	
 	public String willaya(float dt1) {
 		String willaya = "";
-		
-			if (dt1 == 1) willaya = "Hodh Charghi";
-			if (dt1 == 2) willaya = "Hodh Gharbii";
-			if (dt1 == 3) willaya = "Assaba";
-			if (dt1 == 4) willaya = "Gorgol";
-			if (dt1 == 5) willaya = "Brakna";
-			if (dt1 == 6) willaya = "Trarza";
-			if (dt1 == 7) willaya = "Adrar";
-			if (dt1 == 8) willaya = "Nouadhibou";
-			if (dt1 == 9) willaya = "Tagant";
-			if (dt1 == 10) willaya = "Guidimagha";
-			if (dt1 == 11) willaya = "Tiris Zemmour";
-			if (dt1 == 12) willaya = "Inchiri";
-			if (dt1 == 13) willaya = "Nouakchott Nord";
-			if (dt1 == 14) willaya = "Nouakchott Ouest";
-			if (dt1 == 15) willaya = "Nouakchott Sud";
+			int val = (int) dt1;
+			switch(val) {
+				case 1:
+					 willaya = "Hodh Charghi";
+					 break;
+				case 2:
+					 willaya = "Hodh Gharbii";
+					 break;
+				case 3:
+					 willaya = "Assaba";
+					 break;
+				case 4:
+					 willaya = "Gorgol";
+					 break;
+				case 5:
+					willaya = "Brakna";
+					break;
+				case 6: 
+					willaya = "Trarza";
+					break;
+				case 7:
+					 willaya = "Adrar";
+					 break;
+				case 8:
+					willaya = "Nouadhibou";
+					break;
+				case 9: 
+					 willaya = "Tagant";
+					 break;
+				case 10:
+					willaya = "Guidimagha";
+					break;
+				case 11: 
+					 willaya = "Tiris Zemmour";
+					 break;
+				case 12:
+					 willaya = "Inchiri";
+					 break;
+				case 13: 
+					willaya = "Nouakchott Nord";
+					break;
+				case 14:
+					willaya = "Nouakchott Ouest";
+					break;
+				case 15:
+					 willaya = "Nouakchott Sud";
+			}
 			
 		
 		return willaya;
@@ -338,11 +436,20 @@ public class AllLevelserviceImp implements AllLevelservice{
 			if(mough == 5) moughata = "OUALATA";
 			if(mough == 5) moughata = "TIMBEDRA";
 			
-			mough++;
 		
 		return moughata;
 	}
 
+	public String situationmaretale(float situation) {
+		String situationmaretale = "";
+		if(situation == 1) situationmaretale = "Célibatraire" ;
+		if(situation == 2) situationmaretale = "Concubinage";
+		if(situation == 3) situationmaretale = "Divorce(e)";
+		if(situation == 4) situationmaretale = "Marie(e)";
+		if(situation == 5) situationmaretale = "Veuf(ve)";
+		
+		return situationmaretale;
+	}
 
 	
 

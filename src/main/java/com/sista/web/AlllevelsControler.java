@@ -1,5 +1,6 @@
 package com.sista.web;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,8 @@ public class AlllevelsControler {
 	}
 	
 	
-	/*public List<AllLevels>  findByDate(){
-		
-	}*/
+	@GetMapping("/findByDate/{datebut}/{datefin}")
+	public List<AllLevels>  findByDates(@PathVariable BigDecimal datebut, @PathVariable BigDecimal datefin){
+		return alllevelsService.findByDate(datebut, datefin);
+	}
 }

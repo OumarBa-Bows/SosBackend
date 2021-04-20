@@ -2,6 +2,7 @@ package com.sista.entities;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,33 +26,33 @@ public class Biomedicale implements Serializable{
 	private int biomedicale;
 	//@Column(precision=8, scale=0)
 	
-	private double date_bio;
+	private BigDecimal date_bio;
 	//@Column(precision=1, scale=0)
-	private double test_vih;
+	private BigDecimal test_vih;
 	//@Column(name="resultat_depistage", precision=1, scale=0)
 	@Column(name="resultat_depistage")
-	private double result_despistage;
-	private double action;
-	private double depistage_cta;
-	private double resultat_cta;
-	private double mise_arv;
-	private double date_arv;
+	private BigDecimal result_despistage;
+	private BigDecimal action;
+	private BigDecimal depistage_cta;
+	private BigDecimal resultat_cta;
+	private BigDecimal mise_arv;
+	private BigDecimal date_arv;
 	@Lob
 	private String pourquoi;
-	private double consultation_ist;
-	private double dep_hpa;
+	private BigDecimal consultation_ist;
+	private BigDecimal dep_hpa;
 	@Lob
 	private String str_sep_hp;
 	@Lob
 	private String resul_hp;
-	private double hp_orient;
-	private double qs50;
-	private double qs51;
-	private double qs52;
-	private double qs53;
-	private double qs54;
-	private double qs55;
-	private double autres;
+	private BigDecimal hp_orient;
+	private BigDecimal qs50;
+	private BigDecimal qs51;
+	private BigDecimal qs52;
+	private BigDecimal qs53;
+	private BigDecimal qs54;
+	private BigDecimal qs55;
+	private BigDecimal autres;
 	
 	
 	@JsonBackReference(value="level1-biomedicale")
@@ -64,10 +65,11 @@ public class Biomedicale implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Biomedicale(int biomedicale, double date_bio, double test_vih, double result_despistage, double action,
-			double depistage_cta, double resultat_cta, double mise_arv, double date_arv, String pourquoi,
-			double consultation_ist, double dep_hpa, String str_sep_hp, String resul_hp, double hp_orient, double qs50,
-			double qs51, double qs52, double qs53, double qs54, double qs55, double autres, Level1 level1) {
+	public Biomedicale(int biomedicale, BigDecimal date_bio, BigDecimal test_vih, BigDecimal result_despistage,
+			BigDecimal action, BigDecimal depistage_cta, BigDecimal resultat_cta, BigDecimal mise_arv,
+			BigDecimal date_arv, String pourquoi, BigDecimal consultation_ist, BigDecimal dep_hpa, String str_sep_hp,
+			String resul_hp, BigDecimal hp_orient, BigDecimal qs50, BigDecimal qs51, BigDecimal qs52, BigDecimal qs53,
+			BigDecimal qs54, BigDecimal qs55, BigDecimal autres, Level1 level1) {
 		super();
 		this.biomedicale = biomedicale;
 		this.date_bio = date_bio;
@@ -102,67 +104,67 @@ public class Biomedicale implements Serializable{
 		this.biomedicale = biomedicale;
 	}
 
-	public double getDate_bio() {
+	public BigDecimal getDate_bio() {
 		return date_bio;
 	}
 
-	public void setDate_bio(double date_bio) {
+	public void setDate_bio(BigDecimal date_bio) {
 		this.date_bio = date_bio;
 	}
 
-	public double getTest_vih() {
+	public BigDecimal getTest_vih() {
 		return test_vih;
 	}
 
-	public void setTest_vih(double test_vih) {
+	public void setTest_vih(BigDecimal test_vih) {
 		this.test_vih = test_vih;
 	}
 
-	public double getResult_despistage() {
+	public BigDecimal getResult_despistage() {
 		return result_despistage;
 	}
 
-	public void setResult_despistage(double result_despistage) {
+	public void setResult_despistage(BigDecimal result_despistage) {
 		this.result_despistage = result_despistage;
 	}
 
-	public double getAction() {
+	public BigDecimal getAction() {
 		return action;
 	}
 
-	public void setAction(double action) {
+	public void setAction(BigDecimal action) {
 		this.action = action;
 	}
 
-	public double getDepistage_cta() {
+	public BigDecimal getDepistage_cta() {
 		return depistage_cta;
 	}
 
-	public void setDepistage_cta(double depistage_cta) {
+	public void setDepistage_cta(BigDecimal depistage_cta) {
 		this.depistage_cta = depistage_cta;
 	}
 
-	public double getResultat_cta() {
+	public BigDecimal getResultat_cta() {
 		return resultat_cta;
 	}
 
-	public void setResultat_cta(double resultat_cta) {
+	public void setResultat_cta(BigDecimal resultat_cta) {
 		this.resultat_cta = resultat_cta;
 	}
 
-	public double getMise_arv() {
+	public BigDecimal getMise_arv() {
 		return mise_arv;
 	}
 
-	public void setMise_arv(double mise_arv) {
+	public void setMise_arv(BigDecimal mise_arv) {
 		this.mise_arv = mise_arv;
 	}
 
-	public double getDate_arv() {
+	public BigDecimal getDate_arv() {
 		return date_arv;
 	}
 
-	public void setDate_arv(double date_arv) {
+	public void setDate_arv(BigDecimal date_arv) {
 		this.date_arv = date_arv;
 	}
 
@@ -174,19 +176,19 @@ public class Biomedicale implements Serializable{
 		this.pourquoi = pourquoi;
 	}
 
-	public double getConsultation_ist() {
+	public BigDecimal getConsultation_ist() {
 		return consultation_ist;
 	}
 
-	public void setConsultation_ist(double consultation_ist) {
+	public void setConsultation_ist(BigDecimal consultation_ist) {
 		this.consultation_ist = consultation_ist;
 	}
 
-	public double getDep_hpa() {
+	public BigDecimal getDep_hpa() {
 		return dep_hpa;
 	}
 
-	public void setDep_hpa(double dep_hpa) {
+	public void setDep_hpa(BigDecimal dep_hpa) {
 		this.dep_hpa = dep_hpa;
 	}
 
@@ -206,67 +208,67 @@ public class Biomedicale implements Serializable{
 		this.resul_hp = resul_hp;
 	}
 
-	public double getHp_orient() {
+	public BigDecimal getHp_orient() {
 		return hp_orient;
 	}
 
-	public void setHp_orient(double hp_orient) {
+	public void setHp_orient(BigDecimal hp_orient) {
 		this.hp_orient = hp_orient;
 	}
 
-	public double getQs50() {
+	public BigDecimal getQs50() {
 		return qs50;
 	}
 
-	public void setQs50(double qs50) {
+	public void setQs50(BigDecimal qs50) {
 		this.qs50 = qs50;
 	}
 
-	public double getQs51() {
+	public BigDecimal getQs51() {
 		return qs51;
 	}
 
-	public void setQs51(double qs51) {
+	public void setQs51(BigDecimal qs51) {
 		this.qs51 = qs51;
 	}
 
-	public double getQs52() {
+	public BigDecimal getQs52() {
 		return qs52;
 	}
 
-	public void setQs52(double qs52) {
+	public void setQs52(BigDecimal qs52) {
 		this.qs52 = qs52;
 	}
 
-	public double getQs53() {
+	public BigDecimal getQs53() {
 		return qs53;
 	}
 
-	public void setQs53(double qs53) {
+	public void setQs53(BigDecimal qs53) {
 		this.qs53 = qs53;
 	}
 
-	public double getQs54() {
+	public BigDecimal getQs54() {
 		return qs54;
 	}
 
-	public void setQs54(double qs54) {
+	public void setQs54(BigDecimal qs54) {
 		this.qs54 = qs54;
 	}
 
-	public double getQs55() {
+	public BigDecimal getQs55() {
 		return qs55;
 	}
 
-	public void setQs55(double qs55) {
+	public void setQs55(BigDecimal qs55) {
 		this.qs55 = qs55;
 	}
 
-	public double getAutres() {
+	public BigDecimal getAutres() {
 		return autres;
 	}
 
-	public void setAutres(double autres) {
+	public void setAutres(BigDecimal autres) {
 		this.autres = autres;
 	}
 
@@ -278,6 +280,7 @@ public class Biomedicale implements Serializable{
 		this.level1 = level1;
 	}
 
+	
 
 
 	

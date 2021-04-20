@@ -14,8 +14,8 @@ public class AllLevels {
     private String nomIntervenant;
     private String sexe;
     private String nationalite;
-	
-    
+	private Long level1Id;
+   
     public AllLevels() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -23,7 +23,8 @@ public class AllLevels {
 
 
 	public AllLevels(String structurelle, BigDecimal dateInterview, BigDecimal longitude, BigDecimal latitude, String wilaya,
-			String moughata, String numeroIintentification, String nomIntervenant, String sexe, String nationalite) {
+			String moughata, String numeroIintentification, String nomIntervenant, String sexe, String nationalite, Long level1Id
+			) {
 		super();
 		this.structurelle = structurelle;
 		this.dateInterview = dateInterview;
@@ -35,6 +36,8 @@ public class AllLevels {
 		this.nomIntervenant = nomIntervenant;
 		this.sexe = sexe;
 		this.nationalite = nationalite;
+		this.level1Id = level1Id;
+		
 	}
 
 
@@ -136,7 +139,19 @@ public class AllLevels {
 	public void setNationalite(String nationalite) {
 		this.nationalite = nationalite;
 	}
-    
+
+
+	public Long getLevel1Id() {
+		return level1Id;
+	}
+
+
+	public void setLevel1Id(Long level1Id) {
+		this.level1Id = level1Id;
+	}
+
+
+	
     
     
 }

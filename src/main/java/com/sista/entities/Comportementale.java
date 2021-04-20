@@ -31,6 +31,7 @@ public class Comportementale implements Serializable {
 	private float dep_hp;
 	private float outils_iec;
 	private BigDecimal outils_utilise;
+	private float distrubition_iec;
 	private float distribition_iec;
 	private float preservatifs;
 	private float gels;
@@ -54,7 +55,7 @@ public class Comportementale implements Serializable {
 	}
 
 	public Comportementale(Long comportementale_id, float date_comp, float entretien, float causerie, float orientation,
-			float aide_social, float dep_hp, float outils_iec, BigDecimal outils_utilise, float distribition_iec,
+			float aide_social, float dep_hp, float outils_iec, BigDecimal outils_utilise, float distribition_iec, float distrubition_iec,
 			float preservatifs, float gels, String themes, float qs40, float qs41, float qs42, float qs43, float qs44,
 			float qs45, float qs46, Level1 level1) {
 		super();
@@ -67,6 +68,7 @@ public class Comportementale implements Serializable {
 		this.dep_hp = dep_hp;
 		this.outils_iec = outils_iec;
 		this.outils_utilise = outils_utilise;
+		this.distrubition_iec = distrubition_iec;
 		this.distribition_iec = distribition_iec;
 		this.preservatifs = preservatifs;
 		this.gels = gels;
@@ -247,6 +249,14 @@ public class Comportementale implements Serializable {
 
 	public void setLevel1(Level1 level1) {
 		this.level1 = level1;
+	}
+
+	public float getDistrubition_iec() {
+		return distrubition_iec;
+	}
+
+	public void setDistrubition_iec(float distrubition_iec) {
+		this.distrubition_iec = distrubition_iec;
 	}
 
 	
