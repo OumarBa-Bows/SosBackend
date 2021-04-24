@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sista.entities.Biomedicale;
 import com.sista.entities.Comportementale;
 import com.sista.entities.Inf_intervenant;
-import com.sista.entities.Intervention;
+
 import com.sista.entities.Level1;
 import com.sista.entities.Localisation;
 import com.sista.entities.Structurelle;
@@ -58,10 +58,7 @@ public class Level1Controller {
 		return levelservice.allcomportementals(levelId);
 	}
 	
-	@GetMapping("/allintervention/{levelId}")
-	public List<Intervention> allintervention(@PathVariable Long levelId){
-		return levelservice.allintervention(levelId);
-	}
+
 	
 	@GetMapping("/allinf_intervnetion/{levelId}")
 	public List<Inf_intervenant> allinf_intervnetion(@PathVariable Long levelId){

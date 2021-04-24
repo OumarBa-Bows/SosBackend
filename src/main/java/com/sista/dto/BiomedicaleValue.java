@@ -19,7 +19,9 @@ public class BiomedicaleValue {
 	private String hp_orient;
 	private String soins_medicale;
 	private String distributionpresev;
+	private String preservatif;
 	private String distributionGel;
+	private String gels;
 	private String distribution_arv;
 	private String distribution_arv_prev;
 	private String distribution_arv_ptme;
@@ -32,9 +34,9 @@ public class BiomedicaleValue {
 
 	public BiomedicaleValue(String dateIntervention, String depistageVIH, String resultat_depistage, String action,
 			String depistagecta, String resultatcta, String mise_arv, String date_mise_arv, String pourquoi,
-			String depistageIST, String depistageHBS, String structure_depitage, String resulatat_hp,String hp_orient,
-			String soins_medicale, String distributionpresev, String distributionGel, String distribution_arv,
-			String distribution_arv_prev, String distribution_arv_ptme, String autres) {
+			String depistageIST, String depistageHBS, String structure_depitage, String resulatat_hp, String hp_orient,
+			String soins_medicale, String distributionpresev, String preservatif, String distributionGel, String gels,
+			String distribution_arv, String distribution_arv_prev, String distribution_arv_ptme, String autres) {
 		super();
 		this.dateIntervention = dateIntervention;
 		this.depistageVIH = depistageVIH;
@@ -52,7 +54,9 @@ public class BiomedicaleValue {
 		this.hp_orient = hp_orient;
 		this.soins_medicale = soins_medicale;
 		this.distributionpresev = distributionpresev;
+		this.preservatif = preservatif;
 		this.distributionGel = distributionGel;
+		this.gels = gels;
 		this.distribution_arv = distribution_arv;
 		this.distribution_arv_prev = distribution_arv_prev;
 		this.distribution_arv_ptme = distribution_arv_ptme;
@@ -163,6 +167,14 @@ public class BiomedicaleValue {
 		this.resulatat_hp = resulatat_hp;
 	}
 
+	public String getHp_orient() {
+		return hp_orient;
+	}
+
+	public void setHp_orient(String hp_orient) {
+		this.hp_orient = hp_orient;
+	}
+
 	public String getSoins_medicale() {
 		return soins_medicale;
 	}
@@ -179,12 +191,28 @@ public class BiomedicaleValue {
 		this.distributionpresev = distributionpresev;
 	}
 
+	public String getPreservatif() {
+		return preservatif;
+	}
+
+	public void setPreservatif(String preservatif) {
+		this.preservatif = preservatif;
+	}
+
 	public String getDistributionGel() {
 		return distributionGel;
 	}
 
 	public void setDistributionGel(String distributionGel) {
 		this.distributionGel = distributionGel;
+	}
+
+	public String getGels() {
+		return gels;
+	}
+
+	public void setGels(String gels) {
+		this.gels = gels;
 	}
 
 	public String getDistribution_arv() {
@@ -219,13 +247,6 @@ public class BiomedicaleValue {
 		this.autres = autres;
 	}
 
-	public String getHp_orient() {
-		return hp_orient;
-	}
-
-	public void setHp_orient(String hp_orient) {
-		this.hp_orient = hp_orient;
-	}
 	
 	
 	

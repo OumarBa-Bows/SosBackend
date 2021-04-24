@@ -1,6 +1,7 @@
 package com.sista.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,13 +23,13 @@ public class Structurelle implements Serializable{
 	private Long structurelle_id;
 	
 	@Column(name="date_struc")
-	private float date_struc;
+	private BigDecimal date_struc;
 	@Column(name="appui_economique")
-	private float appui_economique;
+	private BigDecimal appui_economique;
 	@Column(name="appui_juridique")
-	private float appui_juridique;
-	private double qs100;
-	private double qs101;
+	private BigDecimal appui_juridique;
+	private BigDecimal qs100;
+	private BigDecimal qs101;
 
 	@JsonBackReference(value="level1-structurelle")
 	@ManyToOne
@@ -40,8 +41,8 @@ public class Structurelle implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Structurelle(Long structurelle_id, float date_struc, float appui_economique, float appui_juridique,
-			double qs100, double qs101, Level1 level1) {
+	public Structurelle(Long structurelle_id, BigDecimal date_struc, BigDecimal appui_economique, BigDecimal appui_juridique,
+			BigDecimal qs100, BigDecimal qs101, Level1 level1) {
 		super();
 		this.structurelle_id = structurelle_id;
 		this.date_struc = date_struc;
@@ -60,43 +61,43 @@ public class Structurelle implements Serializable{
 		this.structurelle_id = structurelle_id;
 	}
 
-	public float getDate_struc() {
+	public BigDecimal getDate_struc() {
 		return date_struc;
 	}
 
-	public void setDate_struc(float date_struc) {
+	public void setDate_struc(BigDecimal date_struc) {
 		this.date_struc = date_struc;
 	}
 
-	public float getAppui_economique() {
+	public BigDecimal getAppui_economique() {
 		return appui_economique;
 	}
 
-	public void setAppui_economique(float appui_economique) {
+	public void setAppui_economique(BigDecimal appui_economique) {
 		this.appui_economique = appui_economique;
 	}
 
-	public float getAppui_juridique() {
+	public BigDecimal getAppui_juridique() {
 		return appui_juridique;
 	}
 
-	public void setAppui_juridique(float appui_juridique) {
+	public void setAppui_juridique(BigDecimal appui_juridique) {
 		this.appui_juridique = appui_juridique;
 	}
 
-	public double getQs100() {
+	public BigDecimal getQs100() {
 		return qs100;
 	}
 
-	public void setQs100(double qs100) {
+	public void setQs100(BigDecimal qs100) {
 		this.qs100 = qs100;
 	}
 
-	public double getQs101() {
+	public BigDecimal getQs101() {
 		return qs101;
 	}
 
-	public void setQs101(double qs101) {
+	public void setQs101(BigDecimal qs101) {
 		this.qs101 = qs101;
 	}
 

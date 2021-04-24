@@ -2,6 +2,7 @@ package com.sista.dto;
 
 public class ComportementaleValue {
 
+	private String date_comp;
 	private String entretienindivid;
 	private String causerie;
 	private String orientation; 
@@ -10,7 +11,6 @@ public class ComportementaleValue {
 	private String outils_iec; 
 	private String outils_util;
 	private String distribution;
-	private float gels;
 	private String thems;
 	private String participationGP;
 	private String particioationRC;
@@ -25,11 +25,12 @@ public class ComportementaleValue {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ComportementaleValue(String entretienindivid, String causerie, String orientation, String aide_social,
-			String dep_hp, String outils_iec, String outils_util, String distribution, float gels, String thems,
+	public ComportementaleValue( String date_comp,String entretienindivid, String causerie, String orientation, String aide_social,
+			String dep_hp, String outils_iec, String outils_util, String distribution, String thems,
 			String participationGP, String particioationRC, String educationThe, String perduedevue,
 			String distributionvideo, String orientationversPTME, String orientationVersSoin) {
 		super();
+		this.setDate_comp(date_comp);
 		this.entretienindivid = entretienindivid;
 		this.causerie = causerie;
 		this.orientation = orientation;
@@ -38,7 +39,6 @@ public class ComportementaleValue {
 		this.outils_iec = outils_iec;
 		this.outils_util = outils_util;
 		this.distribution = distribution;
-		this.gels = gels;
 		this.thems = thems;
 		this.participationGP = participationGP;
 		this.particioationRC = particioationRC;
@@ -113,13 +113,6 @@ public class ComportementaleValue {
 		this.distribution = distribution;
 	}
 
-	public float getGels() {
-		return gels;
-	}
-
-	public void setGels(float gels) {
-		this.gels = gels;
-	}
 
 	public String getThems() {
 		return thems;
@@ -183,6 +176,14 @@ public class ComportementaleValue {
 
 	public void setOrientationVersSoin(String orientationVersSoin) {
 		this.orientationVersSoin = orientationVersSoin;
+	}
+
+	public String getDate_comp() {
+		return date_comp;
+	}
+
+	public void setDate_comp(String date_comp) {
+		this.date_comp = date_comp;
 	}
 	
 	

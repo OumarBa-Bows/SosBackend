@@ -22,7 +22,7 @@ public class idefPersServiceImp implements idefPersService{
 		IdentificationPersonnelle identpersonnelle = new IdentificationPersonnelle();
 		String valcategorie = alllevelservice.categorie(level.getId04());
 		
-		identpersonnelle.setNumeroidentification(""+level.getId01()+level.getIdo()+level.getId02()+Math.round(level.getId03())+valcategorie);
+		identpersonnelle.setNumeroidentification(""+level.getId01()+level.getIdo()+level.getId02()+level.getId03()+valcategorie);
 		Localisation localisation;
 		if(level.getLocalisation().get(0) != null ) {
 			localisation = level.getLocalisation().get(0);

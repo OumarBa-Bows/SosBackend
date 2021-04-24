@@ -41,7 +41,9 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 				biomedicalevalue.setHp_orient(questiondirecte(biomedicale.getHp_orient()));
 				biomedicalevalue.setSoins_medicale(questiondirecte(biomedicale.getQs50()));
 				biomedicalevalue.setDistributionpresev(questiondirecte(biomedicale.getQs51()));
+				biomedicalevalue.setPreservatif(""+biomedicale.getPreservatifs());
 				biomedicalevalue.setDistributionGel(questiondirecte(biomedicale.getQs52()));
+				biomedicalevalue.setGels(""+biomedicale.getGels());
 				biomedicalevalue.setDistribution_arv(questiondirecte(biomedicale.getQs53()));
 				biomedicalevalue.setDistribution_arv_prev(questiondirecte(biomedicale.getQs54()));
 				biomedicalevalue.setDistribution_arv_ptme(questiondirecte(biomedicale.getQs55()));
@@ -58,11 +60,11 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 		String reponse = "";
 		if(val != null ) {
 			if(val.intValue() == 1) reponse = "Oui";
-			if(val.intValue() == 2) reponse = "Oui";
+			if(val.intValue() == 2) reponse = "Non";
 			return reponse;
-		}else {
-			return null;
 		}
+			return ""+val;
+		
 		
 	}
 	//.............................................
@@ -72,9 +74,10 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			if(val.intValue() == 1) reponse = "Positif";
 			if(val.intValue() == 2) reponse = "Negatif";
 			return reponse;
-		}else {
-			return null;
 		}
+		
+		return ""+val;
+		
 			
 	}
 	
@@ -93,9 +96,9 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			
 			return reponse;
 		}
-		else {
-			return null;
-		}
+		
+		return ""+val;
+		
 	}
 	
 	//..............resultat cta........
@@ -107,31 +110,31 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			if(val.intValue() == 3) reponse = "Autre";
 			return reponse;
 		}else {
-			return null;
+			return ""+val;
 		}
 	}
 	
 	//................................................................
 	public String resultat_Hp(String val) {
 		String reponse = "";
-		if(val.equals("A")) {
-			reponse = "B Positif";
-			return reponse;
+		if(val != null) {
+			switch(val) {
+			case "A":
+				reponse = "B Positif";
+				return reponse;
+			case "B":
+				reponse = "C Positif";
+				return reponse;
+			case "C":
+				reponse = "A Positif";
+				return reponse;
+			case "D":
+				reponse = "Aucune (Négatif)";
+				return reponse;
+			}
 		}
-		if(val.equals("B")) {
-			reponse = "C Positif";
-			return reponse;
-		}
-		if(val.equals("C")) {
-			reponse = "A Positif";
-			return reponse;
-		}
-		if(val.equals("D")) {
-			reponse = "Aucune (Négatif)";
-			return reponse;
-		}else {
-			return null;
-		}
+		
+		return ""+val;
 	}
 	
 }

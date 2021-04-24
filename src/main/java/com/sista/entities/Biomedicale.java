@@ -23,9 +23,10 @@ public class Biomedicale implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name="`biomedicale-id`")
-	private int biomedicale;
+	private Long biomedicale;
 	//@Column(precision=8, scale=0)
 	
+	private BigDecimal interv_2;
 	private BigDecimal date_bio;
 	//@Column(precision=1, scale=0)
 	private BigDecimal test_vih;
@@ -48,7 +49,9 @@ public class Biomedicale implements Serializable{
 	private BigDecimal hp_orient;
 	private BigDecimal qs50;
 	private BigDecimal qs51;
+	private BigDecimal preservatifs;
 	private BigDecimal qs52;
+	private BigDecimal gels;
 	private BigDecimal qs53;
 	private BigDecimal qs54;
 	private BigDecimal qs55;
@@ -65,13 +68,15 @@ public class Biomedicale implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Biomedicale(int biomedicale, BigDecimal date_bio, BigDecimal test_vih, BigDecimal result_despistage,
-			BigDecimal action, BigDecimal depistage_cta, BigDecimal resultat_cta, BigDecimal mise_arv,
-			BigDecimal date_arv, String pourquoi, BigDecimal consultation_ist, BigDecimal dep_hpa, String str_sep_hp,
-			String resul_hp, BigDecimal hp_orient, BigDecimal qs50, BigDecimal qs51, BigDecimal qs52, BigDecimal qs53,
-			BigDecimal qs54, BigDecimal qs55, BigDecimal autres, Level1 level1) {
+	public Biomedicale(Long biomedicale, BigDecimal interv_2, BigDecimal date_bio, BigDecimal test_vih,
+			BigDecimal result_despistage, BigDecimal action, BigDecimal depistage_cta, BigDecimal resultat_cta,
+			BigDecimal mise_arv, BigDecimal date_arv, String pourquoi, BigDecimal consultation_ist, BigDecimal dep_hpa,
+			String str_sep_hp, String resul_hp, BigDecimal hp_orient, BigDecimal qs50, BigDecimal qs51,
+			BigDecimal preservatifs, BigDecimal qs52, BigDecimal gels, BigDecimal qs53, BigDecimal qs54,
+			BigDecimal qs55, BigDecimal autres, Level1 level1) {
 		super();
 		this.biomedicale = biomedicale;
+		this.interv_2 = interv_2;
 		this.date_bio = date_bio;
 		this.test_vih = test_vih;
 		this.result_despistage = result_despistage;
@@ -88,7 +93,9 @@ public class Biomedicale implements Serializable{
 		this.hp_orient = hp_orient;
 		this.qs50 = qs50;
 		this.qs51 = qs51;
+		this.preservatifs = preservatifs;
 		this.qs52 = qs52;
+		this.gels = gels;
 		this.qs53 = qs53;
 		this.qs54 = qs54;
 		this.qs55 = qs55;
@@ -96,12 +103,20 @@ public class Biomedicale implements Serializable{
 		this.level1 = level1;
 	}
 
-	public int getBiomedicale() {
+	public Long getBiomedicale() {
 		return biomedicale;
 	}
 
-	public void setBiomedicale(int biomedicale) {
+	public void setBiomedicale(Long biomedicale) {
 		this.biomedicale = biomedicale;
+	}
+
+	public BigDecimal getInterv_2() {
+		return interv_2;
+	}
+
+	public void setInterv_2(BigDecimal interv_2) {
+		this.interv_2 = interv_2;
 	}
 
 	public BigDecimal getDate_bio() {
@@ -232,12 +247,28 @@ public class Biomedicale implements Serializable{
 		this.qs51 = qs51;
 	}
 
+	public BigDecimal getPreservatifs() {
+		return preservatifs;
+	}
+
+	public void setPreservatifs(BigDecimal preservatifs) {
+		this.preservatifs = preservatifs;
+	}
+
 	public BigDecimal getQs52() {
 		return qs52;
 	}
 
 	public void setQs52(BigDecimal qs52) {
 		this.qs52 = qs52;
+	}
+
+	public BigDecimal getGels() {
+		return gels;
+	}
+
+	public void setGels(BigDecimal gels) {
+		this.gels = gels;
 	}
 
 	public BigDecimal getQs53() {
@@ -281,8 +312,6 @@ public class Biomedicale implements Serializable{
 	}
 
 	
-
-
 	
 
 	

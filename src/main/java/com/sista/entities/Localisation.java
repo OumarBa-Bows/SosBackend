@@ -25,25 +25,25 @@ public class Localisation implements Serializable{
 	@GeneratedValue
 	@Column(name="`localisation_identification-id`")
 	private Long localisation_id;
-	private float id1;
-	private float id2;
-	private float id3;
-	private float coordonnees;
+	private BigDecimal id1;
+	private BigDecimal id2;
+	private BigDecimal id3;
+	private BigDecimal coordonnees;
 	private BigDecimal longitude;
 	private BigDecimal latitude;
-	private float sexe;
-	private float date;
-	private float nationalite;
+	private BigDecimal sexe;
+	private BigDecimal date;
+	private BigDecimal nationalite;
 	
 	@Lob 
 	private String autre_nat;
-	private float nom_site;
+	private BigDecimal nom_site;
 	@Lob
 	private String autre_site;
 	private BigDecimal telephone;
-	private float age;
-	private float situation_matrim;
-	private float niveau_scol;
+	private BigDecimal age;
+	private BigDecimal situation_matrim;
+	private BigDecimal niveau_scol;
 	
 	@JsonBackReference(value="level1-localisation_identification")
 	@ManyToOne
@@ -55,10 +55,10 @@ public class Localisation implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Localisation(Long localisation_id, float id1, float id2, float id3, float coordonnees, BigDecimal longitude,
-			BigDecimal latitude, float sexe, float date, float nationalite, String autre_nat, float nom_site,
-			String autre_site, BigDecimal telephone, float age, float situation_matrim, float niveau_scol,
-			Level1 level1) {
+	public Localisation(Long localisation_id, BigDecimal id1, BigDecimal id2, BigDecimal id3, BigDecimal coordonnees,
+			BigDecimal longitude, BigDecimal latitude, BigDecimal sexe, BigDecimal date, BigDecimal nationalite,
+			String autre_nat, BigDecimal nom_site, String autre_site, BigDecimal telephone, BigDecimal age,
+			BigDecimal situation_matrim, BigDecimal niveau_scol, Level1 level1) {
 		super();
 		this.localisation_id = localisation_id;
 		this.id1 = id1;
@@ -88,35 +88,35 @@ public class Localisation implements Serializable{
 		this.localisation_id = localisation_id;
 	}
 
-	public float getId1() {
+	public BigDecimal getId1() {
 		return id1;
 	}
 
-	public void setId1(float id1) {
+	public void setId1(BigDecimal id1) {
 		this.id1 = id1;
 	}
 
-	public float getId2() {
+	public BigDecimal getId2() {
 		return id2;
 	}
 
-	public void setId2(float id2) {
+	public void setId2(BigDecimal id2) {
 		this.id2 = id2;
 	}
 
-	public float getId3() {
+	public BigDecimal getId3() {
 		return id3;
 	}
 
-	public void setId3(float id3) {
+	public void setId3(BigDecimal id3) {
 		this.id3 = id3;
 	}
 
-	public float getCoordonnees() {
+	public BigDecimal getCoordonnees() {
 		return coordonnees;
 	}
 
-	public void setCoordonnees(float coordonnees) {
+	public void setCoordonnees(BigDecimal coordonnees) {
 		this.coordonnees = coordonnees;
 	}
 
@@ -136,27 +136,27 @@ public class Localisation implements Serializable{
 		this.latitude = latitude;
 	}
 
-	public float getSexe() {
+	public BigDecimal getSexe() {
 		return sexe;
 	}
 
-	public void setSexe(float sexe) {
+	public void setSexe(BigDecimal sexe) {
 		this.sexe = sexe;
 	}
 
-	public float getDate() {
+	public BigDecimal getDate() {
 		return date;
 	}
 
-	public void setDate(float date) {
+	public void setDate(BigDecimal date) {
 		this.date = date;
 	}
 
-	public float getNationalite() {
+	public BigDecimal getNationalite() {
 		return nationalite;
 	}
 
-	public void setNationalite(float nationalite) {
+	public void setNationalite(BigDecimal nationalite) {
 		this.nationalite = nationalite;
 	}
 
@@ -168,11 +168,11 @@ public class Localisation implements Serializable{
 		this.autre_nat = autre_nat;
 	}
 
-	public float getNom_site() {
+	public BigDecimal getNom_site() {
 		return nom_site;
 	}
 
-	public void setNom_site(float nom_site) {
+	public void setNom_site(BigDecimal nom_site) {
 		this.nom_site = nom_site;
 	}
 
@@ -192,27 +192,27 @@ public class Localisation implements Serializable{
 		this.telephone = telephone;
 	}
 
-	public float getAge() {
+	public BigDecimal getAge() {
 		return age;
 	}
 
-	public void setAge(float age) {
+	public void setAge(BigDecimal age) {
 		this.age = age;
 	}
 
-	public float getSituation_matrim() {
+	public BigDecimal getSituation_matrim() {
 		return situation_matrim;
 	}
 
-	public void setSituation_matrim(float situation_matrim) {
+	public void setSituation_matrim(BigDecimal situation_matrim) {
 		this.situation_matrim = situation_matrim;
 	}
 
-	public float getNiveau_scol() {
+	public BigDecimal getNiveau_scol() {
 		return niveau_scol;
 	}
 
-	public void setNiveau_scol(float niveau_scol) {
+	public void setNiveau_scol(BigDecimal niveau_scol) {
 		this.niveau_scol = niveau_scol;
 	}
 

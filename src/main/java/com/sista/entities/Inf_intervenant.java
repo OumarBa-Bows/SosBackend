@@ -22,13 +22,13 @@ public class Inf_intervenant implements Serializable{
 	@Column(name="`inf_intervenant-id`")
 	private Long inf_intervenant_id;
 
-	private float intervenant;
-	private float nom_interv;
+	private BigDecimal intervenant;
+	private BigDecimal nom_interv;
 	private BigDecimal date_interview;
 	private BigDecimal heur_intervention;
 	private BigDecimal date_modif;
 	private BigDecimal heure_modif;
-	private double type_cas;
+	private BigDecimal type_cas;
 	
 	@JsonBackReference(value="level1-inf_intervenant")
 	@ManyToOne
@@ -40,9 +40,9 @@ public class Inf_intervenant implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Inf_intervenant(Long inf_intervenant_id, float intervenant, float nom_interv, BigDecimal date_interview,
-			BigDecimal heur_intervention, BigDecimal date_modif, BigDecimal heure_modif, double type_cas,
-			Level1 level1) {
+	public Inf_intervenant(Long inf_intervenant_id, BigDecimal intervenant, BigDecimal nom_interv,
+			BigDecimal date_interview, BigDecimal heur_intervention, BigDecimal date_modif, BigDecimal heure_modif,
+			BigDecimal type_cas, Level1 level1) {
 		super();
 		this.inf_intervenant_id = inf_intervenant_id;
 		this.intervenant = intervenant;
@@ -63,19 +63,19 @@ public class Inf_intervenant implements Serializable{
 		this.inf_intervenant_id = inf_intervenant_id;
 	}
 
-	public float getIntervenant() {
+	public BigDecimal getIntervenant() {
 		return intervenant;
 	}
 
-	public void setIntervenant(float intervenant) {
+	public void setIntervenant(BigDecimal intervenant) {
 		this.intervenant = intervenant;
 	}
 
-	public float getNom_interv() {
+	public BigDecimal getNom_interv() {
 		return nom_interv;
 	}
 
-	public void setNom_interv(float nom_interv) {
+	public void setNom_interv(BigDecimal nom_interv) {
 		this.nom_interv = nom_interv;
 	}
 
@@ -111,11 +111,11 @@ public class Inf_intervenant implements Serializable{
 		this.heure_modif = heure_modif;
 	}
 
-	public double getType_cas() {
+	public BigDecimal getType_cas() {
 		return type_cas;
 	}
 
-	public void setType_cas(double type_cas) {
+	public void setType_cas(BigDecimal type_cas) {
 		this.type_cas = type_cas;
 	}
 
@@ -128,7 +128,6 @@ public class Inf_intervenant implements Serializable{
 	}
 
 	
-
 
 	
 }

@@ -22,27 +22,25 @@ public class Comportementale implements Serializable {
 	@Column(name="`comportementale-id`")
 	private Long comportementale_id;
 	
-	private float date_comp;
-	private float entretien;
-	private float causerie;
-	private float orientation;
+	private BigDecimal interv_1;
+	private BigDecimal date_comp;
+	private BigDecimal entretien;
+	private BigDecimal causerie;
+	private BigDecimal orientation;
 	@Column(name="aide_socail")
-	private float aide_social;
-	private float dep_hp;
-	private float outils_iec;
+	private BigDecimal aide_social;
+	private BigDecimal dep_hp;
+	private BigDecimal outils_iec;
 	private BigDecimal outils_utilise;
-	private float distrubition_iec;
-	private float distribition_iec;
-	private float preservatifs;
-	private float gels;
+	private BigDecimal distrubition_iec;
 	private String themes;
-	private float qs40;
-	private float qs41;
-	private float qs42;
-	private float qs43;
-	private float qs44;
-	private float qs45;
-	private float qs46;
+	private BigDecimal qs40;
+	private BigDecimal qs41;
+	private BigDecimal qs42;
+	private BigDecimal qs43;
+	private BigDecimal qs44;
+	private BigDecimal qs45;
+	private BigDecimal qs46;
 
 	@JsonBackReference(value="level1-comportementale")
 	@ManyToOne
@@ -54,12 +52,14 @@ public class Comportementale implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comportementale(Long comportementale_id, float date_comp, float entretien, float causerie, float orientation,
-			float aide_social, float dep_hp, float outils_iec, BigDecimal outils_utilise, float distribition_iec, float distrubition_iec,
-			float preservatifs, float gels, String themes, float qs40, float qs41, float qs42, float qs43, float qs44,
-			float qs45, float qs46, Level1 level1) {
+	public Comportementale(Long comportementale_id, BigDecimal interv_1, BigDecimal date_comp, BigDecimal entretien,
+			BigDecimal causerie, BigDecimal orientation, BigDecimal aide_social, BigDecimal dep_hp,
+			BigDecimal outils_iec, BigDecimal outils_utilise, BigDecimal distrubition_iec, String themes,
+			BigDecimal qs40, BigDecimal qs41, BigDecimal qs42, BigDecimal qs43, BigDecimal qs44, BigDecimal qs45,
+			BigDecimal qs46, Level1 level1) {
 		super();
 		this.comportementale_id = comportementale_id;
+		this.interv_1 = interv_1;
 		this.date_comp = date_comp;
 		this.entretien = entretien;
 		this.causerie = causerie;
@@ -69,9 +69,6 @@ public class Comportementale implements Serializable {
 		this.outils_iec = outils_iec;
 		this.outils_utilise = outils_utilise;
 		this.distrubition_iec = distrubition_iec;
-		this.distribition_iec = distribition_iec;
-		this.preservatifs = preservatifs;
-		this.gels = gels;
 		this.themes = themes;
 		this.qs40 = qs40;
 		this.qs41 = qs41;
@@ -91,59 +88,67 @@ public class Comportementale implements Serializable {
 		this.comportementale_id = comportementale_id;
 	}
 
-	public float getDate_comp() {
+	public BigDecimal getInterv_1() {
+		return interv_1;
+	}
+
+	public void setInterv_1(BigDecimal interv_1) {
+		this.interv_1 = interv_1;
+	}
+
+	public BigDecimal getDate_comp() {
 		return date_comp;
 	}
 
-	public void setDate_comp(float date_comp) {
+	public void setDate_comp(BigDecimal date_comp) {
 		this.date_comp = date_comp;
 	}
 
-	public float getEntretien() {
+	public BigDecimal getEntretien() {
 		return entretien;
 	}
 
-	public void setEntretien(float entretien) {
+	public void setEntretien(BigDecimal entretien) {
 		this.entretien = entretien;
 	}
 
-	public float getCauserie() {
+	public BigDecimal getCauserie() {
 		return causerie;
 	}
 
-	public void setCauserie(float causerie) {
+	public void setCauserie(BigDecimal causerie) {
 		this.causerie = causerie;
 	}
 
-	public float getOrientation() {
+	public BigDecimal getOrientation() {
 		return orientation;
 	}
 
-	public void setOrientation(float orientation) {
+	public void setOrientation(BigDecimal orientation) {
 		this.orientation = orientation;
 	}
 
-	public float getAide_social() {
+	public BigDecimal getAide_social() {
 		return aide_social;
 	}
 
-	public void setAide_social(float aide_social) {
+	public void setAide_social(BigDecimal aide_social) {
 		this.aide_social = aide_social;
 	}
 
-	public float getDep_hp() {
+	public BigDecimal getDep_hp() {
 		return dep_hp;
 	}
 
-	public void setDep_hp(float dep_hp) {
+	public void setDep_hp(BigDecimal dep_hp) {
 		this.dep_hp = dep_hp;
 	}
 
-	public float getOutils_iec() {
+	public BigDecimal getOutils_iec() {
 		return outils_iec;
 	}
 
-	public void setOutils_iec(float outils_iec) {
+	public void setOutils_iec(BigDecimal outils_iec) {
 		this.outils_iec = outils_iec;
 	}
 
@@ -155,28 +160,12 @@ public class Comportementale implements Serializable {
 		this.outils_utilise = outils_utilise;
 	}
 
-	public float getDistribition_iec() {
-		return distribition_iec;
+	public BigDecimal getDistrubition_iec() {
+		return distrubition_iec;
 	}
 
-	public void setDistribition_iec(float distribition_iec) {
-		this.distribition_iec = distribition_iec;
-	}
-
-	public float getPreservatifs() {
-		return preservatifs;
-	}
-
-	public void setPreservatifs(float preservatifs) {
-		this.preservatifs = preservatifs;
-	}
-
-	public float getGels() {
-		return gels;
-	}
-
-	public void setGels(float gels) {
-		this.gels = gels;
+	public void setDistrubition_iec(BigDecimal distrubition_iec) {
+		this.distrubition_iec = distrubition_iec;
 	}
 
 	public String getThemes() {
@@ -187,59 +176,59 @@ public class Comportementale implements Serializable {
 		this.themes = themes;
 	}
 
-	public float getQs40() {
+	public BigDecimal getQs40() {
 		return qs40;
 	}
 
-	public void setQs40(float qs40) {
+	public void setQs40(BigDecimal qs40) {
 		this.qs40 = qs40;
 	}
 
-	public float getQs41() {
+	public BigDecimal getQs41() {
 		return qs41;
 	}
 
-	public void setQs41(float qs41) {
+	public void setQs41(BigDecimal qs41) {
 		this.qs41 = qs41;
 	}
 
-	public float getQs42() {
+	public BigDecimal getQs42() {
 		return qs42;
 	}
 
-	public void setQs42(float qs42) {
+	public void setQs42(BigDecimal qs42) {
 		this.qs42 = qs42;
 	}
 
-	public float getQs43() {
+	public BigDecimal getQs43() {
 		return qs43;
 	}
 
-	public void setQs43(float qs43) {
+	public void setQs43(BigDecimal qs43) {
 		this.qs43 = qs43;
 	}
 
-	public float getQs44() {
+	public BigDecimal getQs44() {
 		return qs44;
 	}
 
-	public void setQs44(float qs44) {
+	public void setQs44(BigDecimal qs44) {
 		this.qs44 = qs44;
 	}
 
-	public float getQs45() {
+	public BigDecimal getQs45() {
 		return qs45;
 	}
 
-	public void setQs45(float qs45) {
+	public void setQs45(BigDecimal qs45) {
 		this.qs45 = qs45;
 	}
 
-	public float getQs46() {
+	public BigDecimal getQs46() {
 		return qs46;
 	}
 
-	public void setQs46(float qs46) {
+	public void setQs46(BigDecimal qs46) {
 		this.qs46 = qs46;
 	}
 
@@ -251,16 +240,7 @@ public class Comportementale implements Serializable {
 		this.level1 = level1;
 	}
 
-	public float getDistrubition_iec() {
-		return distrubition_iec;
-	}
-
-	public void setDistrubition_iec(float distrubition_iec) {
-		this.distrubition_iec = distrubition_iec;
-	}
-
 	
-
 	
 	
 	

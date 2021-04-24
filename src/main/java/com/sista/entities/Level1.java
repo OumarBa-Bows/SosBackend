@@ -1,6 +1,7 @@
 package com.sista.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,8 +31,8 @@ public class Level1 implements Serializable{
 	private String ido;
 	private String 	id01;
 	private String id02;
-	private float id03;
-	private float id04;
+	private BigDecimal id03;
+	private BigDecimal id04;
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,  mappedBy="level1")
@@ -41,10 +42,6 @@ public class Level1 implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="level1")
 	private List<Comportementale> comportementale;
 	
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="level1")
-	private List<Intervention> intervation; 
-	 
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="level1")
 	private List<Inf_intervenant> inf_intervention;
@@ -68,8 +65,8 @@ public class Level1 implements Serializable{
 
 
 
-	public Level1(Long level, String ido, String id01, String id02, float id03, float id04,
-			List<Biomedicale> biomedicale, List<Comportementale> comportementale, List<Intervention> intervation,
+	public Level1(Long level, String ido, String id01, String id02, BigDecimal id03, BigDecimal id04,
+			List<Biomedicale> biomedicale, List<Comportementale> comportementale, 
 			List<Inf_intervenant> inf_intervention, List<Localisation> localisation, List<Structurelle> structurelle) {
 		super();
 		this.level = level;
@@ -80,7 +77,6 @@ public class Level1 implements Serializable{
 		this.id04 = id04;
 		this.biomedicale = biomedicale;
 		this.comportementale = comportementale;
-		this.intervation = intervation;
 		this.inf_intervention = inf_intervention;
 		this.localisation = localisation;
 		this.structurelle = structurelle;
@@ -99,25 +95,6 @@ public class Level1 implements Serializable{
 	public void setLevel(Long level) {
 		this.level = level;
 	}
-
-
-
-
-
-	public List<Intervention> getIntervation() {
-		return intervation;
-	}
-
-
-
-
-
-	public void setIntervation(List<Intervention> intervation) {
-		this.intervation = intervation;
-	}
-
-
-
 
 
 	public String getIdo() {
@@ -162,7 +139,7 @@ public class Level1 implements Serializable{
 
 
 
-	public double getId03() {
+	public BigDecimal getId03() {
 		return id03;
 	}
 
@@ -170,7 +147,7 @@ public class Level1 implements Serializable{
 
 
 
-	public void setId03(float id03) {
+	public void setId03(BigDecimal id03) {
 		this.id03 = id03;
 	}
 
@@ -178,7 +155,7 @@ public class Level1 implements Serializable{
 
 
 
-	public double getId04() {
+	public BigDecimal getId04() {
 		return id04;
 	}
 
@@ -186,7 +163,7 @@ public class Level1 implements Serializable{
 
 
 
-	public void setId04(float id04) {
+	public void setId04(BigDecimal id04) {
 		this.id04 = id04;
 	}
 

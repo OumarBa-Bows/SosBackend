@@ -9,7 +9,6 @@ import com.sista.dao.Level1Repository;
 import com.sista.entities.Biomedicale;
 import com.sista.entities.Comportementale;
 import com.sista.entities.Inf_intervenant;
-import com.sista.entities.Intervention;
 import com.sista.entities.Level1;
 import com.sista.entities.Localisation;
 import com.sista.entities.Structurelle;
@@ -56,11 +55,7 @@ public class Level1serviceImp implements Level1Service{
 		return level1.getComportementale();
 	}
 
-	@Override
-	public List<Intervention> allintervention(Long idlevel1) {
-		Level1 level1 = level1Repository.findById(idlevel1).get();
-		return level1.getIntervation();
-	}
+
 
 	@Override
 	public List<Inf_intervenant> allinf_intervnetion(Long idlevel1) {
