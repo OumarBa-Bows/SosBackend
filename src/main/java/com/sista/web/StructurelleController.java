@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +27,17 @@ public class StructurelleController {
 	@GetMapping("/all")
 	public List<Structurelle> findall(){
 		return structurelleService.findAll();
+	}
+	
+	@PostMapping("/updateStruc/{idStruc}")
+	public String updateStructure(@PathVariable Long idStruc, @RequestBody Structurelle struc) {
+		try {
+			struc.setStructurelle_id(idStruc);
+			structurelleService.updateStructure(struc);
+			return "L'objet structurelle a été bien enregistrer";
+		}catch(Exception e) {
+			return e.getMessage() + "Erreur de modification";
+		}
 	}
 }
 

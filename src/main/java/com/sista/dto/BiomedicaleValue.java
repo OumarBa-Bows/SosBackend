@@ -1,7 +1,9 @@
 package com.sista.dto;
 
-public class BiomedicaleValue {
+import java.math.BigDecimal;
 
+public class BiomedicaleValue {
+	private Long biomedicale;
 	private String dateIntervention;
 	private String depistageVIH;
 	private String resultat_depistage;
@@ -19,9 +21,9 @@ public class BiomedicaleValue {
 	private String hp_orient;
 	private String soins_medicale;
 	private String distributionpresev;
-	private String preservatif;
+	private BigDecimal preservatif;
 	private String distributionGel;
-	private String gels;
+	private BigDecimal gels;
 	private String distribution_arv;
 	private String distribution_arv_prev;
 	private String distribution_arv_ptme;
@@ -35,7 +37,7 @@ public class BiomedicaleValue {
 	public BiomedicaleValue(String dateIntervention, String depistageVIH, String resultat_depistage, String action,
 			String depistagecta, String resultatcta, String mise_arv, String date_mise_arv, String pourquoi,
 			String depistageIST, String depistageHBS, String structure_depitage, String resulatat_hp, String hp_orient,
-			String soins_medicale, String distributionpresev, String preservatif, String distributionGel, String gels,
+			String soins_medicale, String distributionpresev, BigDecimal preservatif, String distributionGel, BigDecimal gels,
 			String distribution_arv, String distribution_arv_prev, String distribution_arv_ptme, String autres) {
 		super();
 		this.dateIntervention = dateIntervention;
@@ -191,11 +193,11 @@ public class BiomedicaleValue {
 		this.distributionpresev = distributionpresev;
 	}
 
-	public String getPreservatif() {
+	public BigDecimal getPreservatif() {
 		return preservatif;
 	}
 
-	public void setPreservatif(String preservatif) {
+	public void setPreservatif(BigDecimal preservatif) {
 		this.preservatif = preservatif;
 	}
 
@@ -207,11 +209,11 @@ public class BiomedicaleValue {
 		this.distributionGel = distributionGel;
 	}
 
-	public String getGels() {
+	public BigDecimal getGels() {
 		return gels;
 	}
 
-	public void setGels(String gels) {
+	public void setGels(BigDecimal gels) {
 		this.gels = gels;
 	}
 
@@ -245,6 +247,14 @@ public class BiomedicaleValue {
 
 	public void setAutres(String autres) {
 		this.autres = autres;
+	}
+
+	public Long getBiomedicale() {
+		return biomedicale;
+	}
+
+	public void setBiomedicale(Long biomedicale) {
+		this.biomedicale = biomedicale;
 	}
 
 	

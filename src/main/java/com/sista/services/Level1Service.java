@@ -27,4 +27,6 @@ public interface Level1Service {
 	
 	
 	public List<Inf_intervenant> findAllInf_intervenant(Long levelId);
+	
+	public boolean updateLevel(Level1 level);
 }

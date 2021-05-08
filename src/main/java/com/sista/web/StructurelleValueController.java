@@ -26,4 +26,9 @@ public class StructurelleValueController {
 		
 		return structurelleValueService.getListStructurelle(idLevel);
 	}
+	
+	@GetMapping("/findById/{idStruc}")
+	public StructurelleValue findByIdStruc(@PathVariable Long idStruc) {
+		return structurelleValueService.findByIdStruc(idStruc);
+	}
 }

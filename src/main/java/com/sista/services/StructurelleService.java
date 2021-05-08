@@ -9,5 +9,10 @@ public interface StructurelleService {
 	Structurelle findStructurelleNyId(Long strucId);
 	
 	List<Structurelle> findAll();
+	
+	boolean updateStructure(Structurelle structure);
+	
+	Structurelle findStruc(Long strucId); 
+	
 }
 

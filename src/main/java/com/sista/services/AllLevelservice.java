@@ -15,5 +15,7 @@ public interface AllLevelservice {
 	
 	//recherche allevles(all cases) entre deux dates
 	public List<AllLevels> findByDate(BigDecimal date1, BigDecimal date2);
+	
+	public AllLevels findByLevelId(Long idLevle);
 
 }

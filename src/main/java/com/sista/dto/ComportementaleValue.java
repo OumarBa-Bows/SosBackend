@@ -1,7 +1,7 @@
 package com.sista.dto;
 
 public class ComportementaleValue {
-
+	private Long comportementale_id;
 	private String date_comp;
 	private String entretienindivid;
 	private String causerie;
@@ -184,6 +184,14 @@ public class ComportementaleValue {
 
 	public void setDate_comp(String date_comp) {
 		this.date_comp = date_comp;
+	}
+
+	public Long getComportementale_id() {
+		return comportementale_id;
+	}
+
+	public void setComportementale_id(Long comportementale_id) {
+		this.comportementale_id = comportementale_id;
 	}
 	
 	

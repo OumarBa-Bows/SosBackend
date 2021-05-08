@@ -1,7 +1,7 @@
 package com.sista.dto;
 
 public class StructurelleValue {
-
+	private Long strucId;
 	private String date_intervention;
 	private String appui_economique;
 	private String appui_jurique;
@@ -61,6 +61,14 @@ public class StructurelleValue {
 
 	public void setFormation_specique(String formation_specique) {
 		this.formation_specique = formation_specique;
+	}
+
+	public Long getStrucId() {
+		return strucId;
+	}
+
+	public void setStrucId(Long strucId) {
+		this.strucId = strucId;
 	}
 	
 	

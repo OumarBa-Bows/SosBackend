@@ -25,5 +25,10 @@ public class ComportementaleValueController {
 	public List<ComportementaleValue> listcomportementalevalue(@PathVariable Long idLevel) {
 		return comportementalevalueservice.listcomportementalevalue(idLevel);
 	}
+	
+	@GetMapping("/findByIdComportementale/{idComp}")
+	public ComportementaleValue findByIdComportementale(@PathVariable Long idComp) {
+		return comportementalevalueservice.findByIdComportementale(idComp);
+	}
 }
 

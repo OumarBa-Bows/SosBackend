@@ -30,4 +30,12 @@ public class BiomedicaleValueController {
 		logger.info("++++++++++............."+biomedicaleservice.listBiomedicaleVlues(idLevel));
 		return biomedicaleservice.listBiomedicaleVlues(idLevel);
 	}
+	
+	
+	@GetMapping("/findByBioId/{idBio}")
+	public BiomedicaleValue finfByBomedicaleId(@PathVariable Long idBio) {
+		return biomedicaleservice.findByIdBiomedicale(idBio);
+	}
+	
+	
 }

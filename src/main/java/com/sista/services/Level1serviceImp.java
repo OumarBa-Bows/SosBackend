@@ -1,6 +1,7 @@
 package com.sista.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,22 @@ public class Level1serviceImp implements Level1Service{
 	public List<Localisation> allLocalisation(Long idlevel1) {
 		Level1 level1 = level1Repository.findById(idlevel1).get();
 		return level1.getLocalisation();
+	}
+
+	@Override
+	public boolean updateLevel(Level1 level) {
+		Optional<Level1> level1 = level1Repository.findById(level.getLevel());
+		if(level1 != null) {
+			Level1 level2 = level1.get();
+			level2.setIdo(level.getIdo());
+			level2.setId01(level.getId01());
+			level2.setId01(level.getId02());
+			level2.setId03(level.getId03());
+			level2.setId04(level.getId04());
+			level1Repository.save(level2);
+			return true;
+		}
+		return false;
 	}
 
 	

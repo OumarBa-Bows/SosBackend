@@ -42,31 +42,47 @@ public class AllLevelserviceImp implements AllLevelservice{
 				AllLevels alllevels = new AllLevels();
 				String valcategorie = categorie(level1.getId04());
 				
-				alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+valcategorie);
+				alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+level1.getId04());
 				alllevels.setLevel1Id(level1.getLevel());
-				//
+				alllevels.setPrenom(level1.getIdo());
+				alllevels.setPrenom_mere(level1.getId01());
+				alllevels.setPrenom_pere(level1.getId02());
+				alllevels.setAnneeNaissance(level1.getId03().intValue());
+				alllevels.setCategorie(level1.getId04().intValue());
+				
 				Inf_intervenant if_inter; 
 				if(level1.getInf_intervention().get(0) != null) {
 					if_inter = level1.getInf_intervention().get(0);
 					alllevels.setStructurelle(structurelle(if_inter.getIntervenant()));
+					alllevels.setInf_intervenantId(if_inter.getInf_intervenant_id());
 					System.out.println("++++structurelle"+ alllevels.getStructurelle());
-					alllevels.setNomIntervenant(intervenant(if_inter.getNom_interv()));
+					alllevels.setNomIntervenant("intervenant "+if_inter.getNom_interv());
 					alllevels.setDateInterview(if_inter.getDate_interview());
+					alllevels.setHeureInterview(if_inter.getHeur_intervention());
+					alllevels.setDate_modif(if_inter.getDate_modif());
+					alllevels.setHeure_modif(if_inter.getHeure_modif());
+					alllevels.setTypecas(typeCas(if_inter.getType_cas()));
 				}
-				/*for(Inf_intervenant if_inter : level1.getInf_intervention()) {
-					alllevels.setStructurelle(structurelle(if_inter.getIntervenant()));
-					alllevels.setNomIntervenant(intervenant(if_inter.getNom_interv()));
-					alllevels.setDateInterview(if_inter.getDate_interview());
-				} */
+				
 				Localisation location;
 				if(level1.getLocalisation().get(0) != null ) {
 					location = level1.getLocalisation().get(0);
+					alllevels.setLocalisationId(location.getLocalisation_id());
 					alllevels.setLatitude(location.getLatitude());
 					alllevels.setLongitude(location.getLongitude());
 					alllevels.setMoughata(moughata(location.getId2()));
 					alllevels.setWilaya(willaya(location.getId1()));
+					alllevels.setCommune(commune(location.getId3()));
 					alllevels.setSexe(sexe(location.getSexe()));
 					alllevels.setNationalite(nationalite(location.getNationalite()));
+					alllevels.setDate_indentification(location.getDate());
+					alllevels.setAutre_nationnalite(location.getAutre_nat());
+					alllevels.setSite(nomSite(location.getNom_site()));
+					alllevels.setAutre_site(location.getAutre_site());
+					alllevels.setAge(location.getAge());
+					alllevels.setTelephone(location.getTelephone());
+					alllevels.setSituation_matrim(situationmaretale(location.getSituation_matrim()));
+					alllevels.setNiveauSocial(niveauScolaire(location.getNiveau_scol()));
 				}
 				//alllevels.setStructurelle(structurelle(level1.getInf_intervention().getIntervenant());
 				malist.add(alllevels);
@@ -109,29 +125,52 @@ public class AllLevelserviceImp implements AllLevelservice{
 					if(level1.getInf_intervention().contains(infIntervenant)) {
 						logger.info("......////....33");
 						AllLevels alllevels = new AllLevels();
-						alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+level1.getId04());
+						String valcategorie = categorie(level1.getId04());
 						
-						Inf_intervenant	if_inter;
+						alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+level1.getId04());
+						alllevels.setLevel1Id(level1.getLevel());
+						alllevels.setPrenom(level1.getIdo());
+						alllevels.setPrenom_mere(level1.getId01());
+						alllevels.setPrenom_pere(level1.getId02());
+						alllevels.setAnneeNaissance(level1.getId03().intValue());
+						alllevels.setCategorie(level1.getId04().intValue());
+						
+						Inf_intervenant if_inter; 
 						if(level1.getInf_intervention().get(0) != null) {
 							if_inter = level1.getInf_intervention().get(0);
 							alllevels.setStructurelle(structurelle(if_inter.getIntervenant()));
+							alllevels.setInf_intervenantId(if_inter.getInf_intervenant_id());
 							System.out.println("++++structurelle"+ alllevels.getStructurelle());
-							alllevels.setNomIntervenant(intervenant(if_inter.getNom_interv()));
+							alllevels.setNomIntervenant("intervenant "+if_inter.getNom_interv());
 							alllevels.setDateInterview(if_inter.getDate_interview());
+							alllevels.setHeureInterview(if_inter.getHeur_intervention());
+							alllevels.setDate_modif(if_inter.getDate_modif());
+							alllevels.setHeure_modif(if_inter.getHeure_modif());
+							alllevels.setTypecas(typeCas(if_inter.getType_cas()));
 						}
-						
 						
 						Localisation location;
 						if(level1.getLocalisation().get(0) != null ) {
 							location = level1.getLocalisation().get(0);
+							alllevels.setLocalisationId(location.getLocalisation_id());
 							alllevels.setLatitude(location.getLatitude());
 							alllevels.setLongitude(location.getLongitude());
 							alllevels.setMoughata(moughata(location.getId2()));
 							alllevels.setWilaya(willaya(location.getId1()));
+							alllevels.setCommune(commune(location.getId3()));
 							alllevels.setSexe(sexe(location.getSexe()));
 							alllevels.setNationalite(nationalite(location.getNationalite()));
+							alllevels.setDate_indentification(location.getDate());
+							alllevels.setAutre_nationnalite(location.getAutre_nat());
+							alllevels.setSite(nomSite(location.getNom_site()));
+							alllevels.setAutre_site(location.getAutre_site());
+							alllevels.setAge(location.getAge());
+							alllevels.setTelephone(location.getTelephone());
+							alllevels.setSituation_matrim(situationmaretale(location.getSituation_matrim()));
+							alllevels.setNiveauSocial(niveauScolaire(location.getNiveau_scol()));
 						}
 						//alllevels.setStructurelle(structurelle(level1.getInf_intervention().getIntervenant());
+	
 						malist.add(alllevels);
 					}
 					
@@ -160,27 +199,47 @@ public class AllLevelserviceImp implements AllLevelservice{
 							logger.info("......////....33");
 							AllLevels alllevels = new AllLevels();
 							String valcategorie = categorie(level1.getId04());
-							alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+valcategorie);
+							alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+level1.getId04());
 							alllevels.setLevel1Id(level1.getLevel());
+							alllevels.setPrenom(level1.getIdo());
+							alllevels.setPrenom_mere(level1.getId01());
+							alllevels.setPrenom_pere(level1.getId02());
+							alllevels.setAnneeNaissance(level1.getId03().intValue());
+							alllevels.setCategorie(level1.getId04().intValue());
 							//
 							Inf_intervenant if_inter1; 
 							if(level1.getInf_intervention().get(0) != null) {
-								if_inter1 = level1.getInf_intervention().get(0);
-								alllevels.setStructurelle(structurelle(if_inter1.getIntervenant()));
+								if_inter = level1.getInf_intervention().get(0);
+								alllevels.setStructurelle(structurelle(if_inter.getIntervenant()));
+								alllevels.setInf_intervenantId(if_inter.getInf_intervenant_id());
 								System.out.println("++++structurelle"+ alllevels.getStructurelle());
-								alllevels.setNomIntervenant(intervenant(if_inter1.getNom_interv()));
-								alllevels.setDateInterview(if_inter1.getDate_interview());
+								alllevels.setNomIntervenant("intervenant "+if_inter.getNom_interv());
+								alllevels.setDateInterview(if_inter.getDate_interview());
+								alllevels.setHeureInterview(if_inter.getHeur_intervention());
+								alllevels.setDate_modif(if_inter.getDate_modif());
+								alllevels.setHeure_modif(if_inter.getHeure_modif());
+								alllevels.setTypecas(typeCas(if_inter.getType_cas()));
 							}
 							
 							Localisation location;
 							if(level1.getLocalisation().get(0) != null ) {
 								location = level1.getLocalisation().get(0);
+								alllevels.setLocalisationId(location.getLocalisation_id());
 								alllevels.setLatitude(location.getLatitude());
 								alllevels.setLongitude(location.getLongitude());
 								alllevels.setMoughata(moughata(location.getId2()));
 								alllevels.setWilaya(willaya(location.getId1()));
+								alllevels.setCommune(commune(location.getId3()));
 								alllevels.setSexe(sexe(location.getSexe()));
 								alllevels.setNationalite(nationalite(location.getNationalite()));
+								alllevels.setDate_indentification(location.getDate());
+								alllevels.setAutre_nationnalite(location.getAutre_nat());
+								alllevels.setSite(nomSite(location.getNom_site()));
+								alllevels.setAutre_site(location.getAutre_site());
+								alllevels.setAge(location.getAge());
+								alllevels.setTelephone(location.getTelephone());
+								alllevels.setSituation_matrim(situationmaretale(location.getSituation_matrim()));
+								alllevels.setNiveauSocial(niveauScolaire(location.getNiveau_scol()));
 							}
 							//alllevels.setStructurelle(structurelle(level1.getInf_intervention().getIntervenant());
 							malist.add(alllevels);
@@ -718,7 +777,7 @@ public class AllLevelserviceImp implements AllLevelservice{
 		}
 		
 	
-		return null;
+		return ""+nominterv;
 	}
 	
 	public String willaya(BigDecimal dt1) {
@@ -785,8 +844,8 @@ public class AllLevelserviceImp implements AllLevelservice{
 		String sex= "";
 		if(val != null) {
 			
-			if(val.intValue() == 1) sex ="homme";
-			if(val.intValue() == 2) sex ="femme";
+			if(val.intValue() == 1) sex ="H";
+			if(val.intValue() == 2) sex ="F";
 			return sex;
 		}
 		
@@ -835,6 +894,129 @@ public class AllLevelserviceImp implements AllLevelservice{
 		return null;
 	}
 	
+	public String commune(BigDecimal com) {
+		String commune ="";
+		if(com != null) {
+			int val = com.intValue();
+			switch(val) {
+				case 1:
+					commune = "Amourj";
+					return commune;
+				case 2:
+					commune = "Abdel Bagrou";
+					return commune;
+				case 3:
+					commune = "Bougadoum";
+					return commune;
+				case 4:
+					commune = "Bassiknou";
+					return commune;
+				case 5:
+					commune = "El Megve";
+					return commune;
+				case 6:
+					commune = "Fessale";
+					return commune;
+				case 7:
+					commune = "Dhar";
+					return commune;
+				case 8:
+					commune = "Feireni";
+					return commune;
+				case 9:
+					commune = "Beneamane";
+					return commune;
+				case 10:
+					commune = "Oueinatt Ezbel";
+					return commune;
+				case 11:
+					commune = "Ghlig Ehel Beye";
+					return commune;
+				case 12:
+					commune = "Ksar El Barke";
+					return commune;
+				case 13:
+					commune = "Djiguenni";
+					return commune;
+				case 14:
+					commune = "Mabrouk";
+					return commune;
+				case 15:
+					commune = "Nema";
+					return commune;
+				case 16:
+					commune = "Achemime";
+					return commune;
+				case 17:
+					commune = "Jreif";
+					return commune;
+				case 18:
+					commune = "Bangou";
+					return commune;
+				case 19:
+					commune = "Hassi Etile";
+					return commune;
+				case 20:
+					commune = "Oum Avnadech";
+					return commune;
+				case 21:
+					commune = "El Mabrouk";
+					return commune;
+				case 22:
+					commune = "Beribavat";
+					return commune;
+				case 23:
+					commune = "Noual";
+					return commune;
+				case 24:
+					commune = "Agoueinit";
+					return commune;
+				case 25:
+					commune = "Oualata";
+					return commune;
+				case 26:
+					commune = "Timbedra";
+					return commune;
+				case 27:
+					commune = "Touil";
+					return commune;
+				case 28:
+					commune = "Koumbi Saleh";
+					return commune;
+				case 29:
+					commune = "Bousteille";
+					return commune;
+				case 30:
+					commune = "Hassi Mhadi";
+					return commune;
+				case 31:
+					commune = "Tenhemade";
+					return commune;
+				case 32:
+					commune = "Aioun";
+					return commune;
+				case 33:
+					commune = "Nsavenni";
+					return commune;
+				case 34:
+					commune = "Doueirare";
+					return commune;
+				case 35:
+					commune = "Ten Hamad";
+					return commune;
+				case 36:
+					commune = "Beneamane";
+					return commune;
+				case 37:
+					commune = "Egjert";
+					return commune;
+				case 38:
+					commune = "Oum Lahydh";
+					return commune;
+			}
+		}
+		return ""+com;
+	}
 	
 	public String moughata(BigDecimal mough) {
 		String moughata = "";
@@ -1041,11 +1223,131 @@ public class AllLevelserviceImp implements AllLevelservice{
 		
 		return null;
 	}
-
 	
+	public String nomSite(BigDecimal nom) {
+		String nomsite ="";
+		if(nom != null) {
+			int val = nom.intValue();
+			switch(val) {
+				case 1:
+					nomsite = "site 1";
+					return nomsite;
+				case 2:
+					nomsite = "site 2";
+					return nomsite;
+				case 3:
+					nomsite = "site 3";
+					return nomsite;
+				case 4:
+					nomsite = "site 4";
+					return nomsite;
+			}
+		}
+		return null;
+	} 
+	
+	public String niveauScolaire(BigDecimal valeur) {
+		String niveauSc = "";
+		if(valeur != null) {
+			int val = valeur.intValue();
+			switch(val) {
+				case 1:
+					niveauSc = "Analphabète";
+					return niveauSc;
+				case 2:
+					niveauSc = "Primaire";
+					return niveauSc;
+				case 3:
+					niveauSc = "Secondaire";
+					return niveauSc;
+				case 4:
+					niveauSc = "Supérieur";
+					return niveauSc;
+				case 5:
+					niveauSc = "Couranique/Mahadra";
+					return niveauSc;
+				case 6:
+					niveauSc = "Autres";
+					return niveauSc;
+			}
+		}
+		return null;
+	}
+	
+	public String typeCas(BigDecimal type) {
+		String types = "";
+		if(type != null) {
+			int val = type.intValue();
+			switch(val) {
+				case 1:
+					types = "Nouveau cas";
+					return types;
+				case 2:
+					types = "Existant, Retourner et le selectionner parmi la liste";
+					return types;
+			}
+		}
+		
+		return null;
+	}
 
 
-
-
+	@Override
+	public AllLevels findByLevelId(Long idLevlel) {
+		Level1 level1 = levelservice.findById(idLevlel);
+	
+		if(level1 != null) {
+			AllLevels alllevels = new AllLevels();
+			String valcategorie = categorie(level1.getId04());
+			
+			alllevels.setNumeroIintentification(""+level1.getId01()+level1.getIdo()+level1.getId02()+level1.getId03()+level1.getId04());
+			alllevels.setLevel1Id(level1.getLevel());
+			alllevels.setPrenom(level1.getIdo());
+			alllevels.setPrenom_mere(level1.getId01());
+			alllevels.setPrenom_pere(level1.getId02());
+			alllevels.setAnneeNaissance(level1.getId03().intValue());
+			alllevels.setCategorie(level1.getId04().intValue());
+			
+			Inf_intervenant if_inter; 
+			if(level1.getInf_intervention().get(0) != null) {
+				if_inter = level1.getInf_intervention().get(0);
+				alllevels.setStructurelle(structurelle(if_inter.getIntervenant()));
+				alllevels.setInf_intervenantId(if_inter.getInf_intervenant_id());
+				System.out.println("++++structurelle"+ alllevels.getStructurelle());
+				alllevels.setNomIntervenant("intervenant "+if_inter.getNom_interv());
+				alllevels.setDateInterview(if_inter.getDate_interview());
+				alllevels.setHeureInterview(if_inter.getHeur_intervention());
+				alllevels.setDate_modif(if_inter.getDate_modif());
+				alllevels.setHeure_modif(if_inter.getHeure_modif());
+				alllevels.setTypecas(typeCas(if_inter.getType_cas()));
+			}
+			
+			Localisation location;
+			if(level1.getLocalisation().get(0) != null ) {
+				location = level1.getLocalisation().get(0);
+				alllevels.setLocalisationId(location.getLocalisation_id());
+				alllevels.setLatitude(location.getLatitude());
+				alllevels.setLongitude(location.getLongitude());
+				alllevels.setMoughata(moughata(location.getId2()));
+				alllevels.setWilaya(willaya(location.getId1()));
+				alllevels.setCommune(commune(location.getId3()));
+				alllevels.setSexe(sexe(location.getSexe()));
+				alllevels.setNationalite(nationalite(location.getNationalite()));
+				alllevels.setDate_indentification(location.getDate());
+				alllevels.setAutre_nationnalite(location.getAutre_nat());
+				alllevels.setSite(nomSite(location.getNom_site()));
+				alllevels.setAutre_site(location.getAutre_site());
+				alllevels.setAge(location.getAge());
+				alllevels.setTelephone(location.getTelephone());
+				alllevels.setSituation_matrim(situationmaretale(location.getSituation_matrim()));
+				alllevels.setNiveauSocial(niveauScolaire(location.getNiveau_scol()));
+			}
+			//alllevels.setStructurelle(structurelle(level1.getInf_intervention().getIntervenant());
+			return alllevels;
+		
+		}
+		return null;
+	}
+	
 
 }

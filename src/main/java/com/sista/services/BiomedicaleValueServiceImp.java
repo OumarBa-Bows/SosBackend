@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,11 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 	@Autowired
 	private Level1serviceImp level1service; 
 	
+	@Autowired
+	private BiomedicaleServiceImp biomedicaleservice; 
+	
+	Logger logger = LoggerFactory.getLogger(BiomedicaleValueServiceImp.class);
+	
 	@Override
 	public List<BiomedicaleValue> listBiomedicaleVlues(Long idLevel) {
 		Level1 level =  level1service.findById(idLevel);
@@ -25,25 +32,26 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 		if(level.getBiomedicale() != null ) {
 			for(Biomedicale biomedicale : level.getBiomedicale() ) {
 				BiomedicaleValue biomedicalevalue = new BiomedicaleValue();
-				biomedicalevalue.setDateIntervention(""+biomedicale.getDate_bio());
+				biomedicalevalue.setBiomedicale(biomedicale.getBiomedicale());
+				biomedicalevalue.setDateIntervention(valString(biomedicale.getDate_bio()));
 				biomedicalevalue.setDepistageVIH(questiondirecte(biomedicale.getTest_vih()));
 				biomedicalevalue.setResultat_depistage(resultat_depistage(biomedicale.getResult_despistage()));
 				biomedicalevalue.setAction(positif_action(biomedicale.getAction()));
 				biomedicalevalue.setDepistagecta(questiondirecte(biomedicale.getDepistage_cta()));
 				biomedicalevalue.setResultatcta(resulatatCTA(biomedicale.getResultat_cta()));
 				biomedicalevalue.setMise_arv(questiondirecte(biomedicale.getMise_arv()));
-				biomedicalevalue.setDate_mise_arv(""+biomedicale.getDate_arv());
-				biomedicalevalue.setPourquoi(""+biomedicale.getPourquoi());
+				biomedicalevalue.setDate_mise_arv(valString(biomedicale.getDate_arv()));
+				biomedicalevalue.setPourquoi(biomedicale.getPourquoi());
 				biomedicalevalue.setDepistageIST(questiondirecte(biomedicale.getConsultation_ist()));
 				biomedicalevalue.setDepistageHBS(questiondirecte(biomedicale.getDep_hpa()));
-				biomedicalevalue.setStructure_depitage(""+biomedicale.getStr_sep_hp());
+				biomedicalevalue.setStructure_depitage(biomedicale.getStr_sep_hp());
 				biomedicalevalue.setResulatat_hp(resultat_Hp(biomedicale.getResul_hp()));
 				biomedicalevalue.setHp_orient(questiondirecte(biomedicale.getHp_orient()));
 				biomedicalevalue.setSoins_medicale(questiondirecte(biomedicale.getQs50()));
 				biomedicalevalue.setDistributionpresev(questiondirecte(biomedicale.getQs51()));
-				biomedicalevalue.setPreservatif(""+biomedicale.getPreservatifs());
+				biomedicalevalue.setPreservatif(biomedicale.getPreservatifs());
 				biomedicalevalue.setDistributionGel(questiondirecte(biomedicale.getQs52()));
-				biomedicalevalue.setGels(""+biomedicale.getGels());
+				biomedicalevalue.setGels(biomedicale.getGels());
 				biomedicalevalue.setDistribution_arv(questiondirecte(biomedicale.getQs53()));
 				biomedicalevalue.setDistribution_arv_prev(questiondirecte(biomedicale.getQs54()));
 				biomedicalevalue.setDistribution_arv_ptme(questiondirecte(biomedicale.getQs55()));
@@ -55,6 +63,12 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 		return maList;
 	}
 
+	public String valString(BigDecimal val) {
+		if(val != null) {
+			return ""+val;
+		}
+		return null;
+	}
 	
 	public String questiondirecte(BigDecimal val) {
 		String reponse = "";
@@ -63,7 +77,7 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			if(val.intValue() == 2) reponse = "Non";
 			return reponse;
 		}
-			return ""+val;
+			return null;
 		
 		
 	}
@@ -72,11 +86,11 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 		String reponse = "";
 		if(val != null) {
 			if(val.intValue() == 1) reponse = "Positif";
-			if(val.intValue() == 2) reponse = "Negatif";
+			if(val.intValue() == 2) reponse = "Négatif";
 			return reponse;
 		}
 		
-		return ""+val;
+		return null;
 		
 			
 	}
@@ -97,7 +111,7 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			return reponse;
 		}
 		
-		return ""+val;
+		return null;
 		
 	}
 	
@@ -110,7 +124,7 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			if(val.intValue() == 3) reponse = "Autre";
 			return reponse;
 		}else {
-			return ""+val;
+			return null;
 		}
 	}
 	
@@ -134,7 +148,46 @@ public class BiomedicaleValueServiceImp implements BiomedicaleValueService{
 			}
 		}
 		
-		return ""+val;
+		return null;
+	}
+
+	
+	@Override
+	public BiomedicaleValue findByIdBiomedicale(Long idBio) {
+		logger.info(".............++++++++ bio value....1");
+		Biomedicale biomedicale = biomedicaleservice.findById(idBio);
+		logger.info(".............++++++++ bio value....2");
+		if(biomedicale != null) {
+			BiomedicaleValue biomedicalevalue = new BiomedicaleValue();
+			logger.info(".............++++++++ bio value");
+			biomedicalevalue.setBiomedicale(biomedicale.getBiomedicale());
+			biomedicalevalue.setDateIntervention(valString(biomedicale.getDate_bio()));
+			biomedicalevalue.setDepistageVIH(questiondirecte(biomedicale.getTest_vih()));
+			biomedicalevalue.setResultat_depistage(resultat_depistage(biomedicale.getResult_despistage()));
+			biomedicalevalue.setAction(positif_action(biomedicale.getAction()));
+			biomedicalevalue.setDepistagecta(questiondirecte(biomedicale.getDepistage_cta()));
+			biomedicalevalue.setResultatcta(resulatatCTA(biomedicale.getResultat_cta()));
+			biomedicalevalue.setMise_arv(questiondirecte(biomedicale.getMise_arv()));
+			biomedicalevalue.setDate_mise_arv(valString(biomedicale.getDate_arv()));
+			biomedicalevalue.setPourquoi(biomedicale.getPourquoi());
+			biomedicalevalue.setDepistageIST(questiondirecte(biomedicale.getConsultation_ist()));
+			biomedicalevalue.setDepistageHBS(questiondirecte(biomedicale.getDep_hpa()));
+			biomedicalevalue.setStructure_depitage(biomedicale.getStr_sep_hp());
+			biomedicalevalue.setResulatat_hp(resultat_Hp(biomedicale.getResul_hp()));
+			biomedicalevalue.setHp_orient(questiondirecte(biomedicale.getHp_orient()));
+			biomedicalevalue.setSoins_medicale(questiondirecte(biomedicale.getQs50()));
+			biomedicalevalue.setDistributionpresev(questiondirecte(biomedicale.getQs51()));
+			biomedicalevalue.setPreservatif(biomedicale.getPreservatifs());
+			biomedicalevalue.setDistributionGel(questiondirecte(biomedicale.getQs52()));
+			biomedicalevalue.setGels(biomedicale.getGels());
+			biomedicalevalue.setDistribution_arv(questiondirecte(biomedicale.getQs53()));
+			biomedicalevalue.setDistribution_arv_prev(questiondirecte(biomedicale.getQs54()));
+			biomedicalevalue.setDistribution_arv_ptme(questiondirecte(biomedicale.getQs55()));
+			biomedicalevalue.setAutres(questiondirecte(biomedicale.getAutres()));
+			
+			return biomedicalevalue;
+		}
+		return null;
 	}
 	
 }

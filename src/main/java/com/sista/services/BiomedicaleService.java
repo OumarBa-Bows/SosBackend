@@ -10,4 +10,7 @@ public interface BiomedicaleService {
 	
 	public List<Biomedicale> findAll();
 
+	boolean updateBiomedicale(Biomedicale biomedicale);
+	
+	Biomedicale findById(Long bioId);
 }

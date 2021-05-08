@@ -37,4 +37,9 @@ public class AlllevelsControler {
 	public List<AllLevels>  findByDates(@PathVariable BigDecimal datebut, @PathVariable BigDecimal datefin){
 		return alllevelsService.findByDate(datebut, datefin);
 	}
+	
+	@GetMapping("/findByLevelId/{idLevel}")
+	public AllLevels findByLevelId(@PathVariable Long idLevel){
+		return alllevelsService.findByLevelId(idLevel);
+	}
 }

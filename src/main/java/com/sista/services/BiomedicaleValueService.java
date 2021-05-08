@@ -7,4 +7,6 @@ import com.sista.dto.BiomedicaleValue;
 public interface BiomedicaleValueService {
 
 	public List<BiomedicaleValue> listBiomedicaleVlues(Long idLevel);
+	
+	public BiomedicaleValue findByIdBiomedicale(Long idBio);
 }

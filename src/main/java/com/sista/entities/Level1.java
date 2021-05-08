@@ -52,7 +52,6 @@ public class Level1 implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,  mappedBy="level1")
-	//@JoinColumn(name="`level-1-id`")
 	private List<Structurelle> structurelle;
 	
 	

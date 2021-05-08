@@ -7,4 +7,6 @@ import com.sista.dto.StructurelleValue;
 public interface StructurelleValueService {
 	
 	public List<StructurelleValue> getListStructurelle(Long idLevel);
+	
+	public StructurelleValue findByIdStruc(Long idStruc);
 }
